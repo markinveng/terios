@@ -18,8 +18,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@prisma/client": ["node_modules/@prisma/client"],
+      "@prisma/terios-client": ["node_modules/@prisma/terios-client"]
     }
   },
   "include": [

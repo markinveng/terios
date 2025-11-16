@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
+    "bcrypt": "^6.0.0",
     "env-cmd": "^11.0.0",
     "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "sass": "^1.94.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
