@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  // リレーションフィールド
+  goals Goal[] // User が複数の Goal を持つ
+}
+
+model Goal {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  description String
+  deadline    DateTime
+  createdAt   DateTime @default(now())
+
+  // リレーションフィールド
+  user       User        @relation(fields: [userId], references: [id])
+  subGoals   SubGoal[] // Goal が複数の SubGoal を持つ
+  progress   Progress? // Goal が Progress を持つ
+  supporters Supporter[] // Goal が複数の Supporter を持つ
+}
+
+model SubGoal {
+  id          String   @id @default(uuid())
+  goalId      String
+  title       String
+  isCompleted Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  // リレーションフィールド
+  goal Goal @relation(fields: [goalId], references: [id])
+}
+
+model Progress {
+  id         String   @id @default(uuid())
+  goalId     String   @unique
+  percentage Int
+  updatedAt  DateTime @updatedAt
+
+  // リレーションフィールド
+  goal Goal @relation(fields: [goalId], references: [id])
+}
+
+model Supporter {
+  id        String   @id @default(uuid())
+  goalId    String
+  createdAt DateTime @default(now())
+
+  // リレーションフィールド
+  goal Goal @relation(fields: [goalId], references: [id])
+}
