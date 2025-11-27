@@ -1,16 +1,30 @@
 {
   "name": "terios",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "start:prod": "env-cmd -f .env.production next start",
-    "lint": "eslint"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "lint": {},
+    "test": {}
   },
   "dependencies": {
-    "@prisma/client": "^6.19.0",
+    "@prisma/client": "^7.0.0",
     "bcrypt": "^6.0.0",
     "env-cmd": "^11.0.0",
     "next": "16.0.1",
@@ -28,7 +42,20 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
-    "prisma": "^6.19.0",
-    "typescript": "^5"
+    "prettier": "^3.6.2",
+    "prisma": "^7.0.0",
+    "turbo": "^2.6.1",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@4.11.0",
+  "workspaces": [
+    "apps/frontend/",
+    "packages/*"
+  ],
+  "prisma": {
+    "schema": "packages/prisma/schema.prisma"
   }
 }

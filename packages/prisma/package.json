@@ -1,0 +1,17 @@
+{
+  "name": "@terios/prisma",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "yarn@4.11.0",
+  "main": "index.js",
+  "scripts": {
+    "generate": "prisma generate --schema schema.prisma",
+    "migrate:dev": "prisma migrate dev --schema schema.prisma",
+    "migrate:deploy": "prisma migrate deploy --schema schema.prisma",
+    "studio": "prisma studio --schema schema.prisma"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.0.0",
+    "prisma": "^7.0.0"
+  }
+}
