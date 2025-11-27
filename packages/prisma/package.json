@@ -5,13 +5,14 @@
   "packageManager": "yarn@4.11.0",
   "main": "index.js",
   "scripts": {
-    "generate": "prisma generate --schema schema.prisma",
-    "migrate:dev": "prisma migrate dev --schema schema.prisma",
-    "migrate:deploy": "prisma migrate deploy --schema schema.prisma",
-    "studio": "prisma studio --schema schema.prisma"
+    "generate": "env-cmd -f ../../.env prisma generate --schema schema.prisma",
+    "migrate:dev": "env-cmd -f ../../.env prisma migrate dev --schema schema.prisma",
+    "migrate:deploy": "env-cmd -f ../../.env prisma migrate deploy --schema schema.prisma",
+    "studio": "env-cmd -f ../../.env prisma studio --schema schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "^7.0.0",
-    "prisma": "^7.0.0"
+    "@prisma/client": "5.20.0",
+    "env-cmd": "^11.0.0",
+    "prisma": "5.20.0"
   }
 }

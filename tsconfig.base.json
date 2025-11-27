@@ -22,7 +22,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@terios/prisma/client": ["packages/prisma/generated/client"]
+    }
   },
   "include": [
     "next-env.d.ts",
