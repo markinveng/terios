@@ -7,12 +7,13 @@ COPY .yarn ./.yarn
 
 # 2. すべてのワークスペースの package.json をコピー
 COPY apps/frontend/package.json ./apps/frontend/package.json
+COPY apps/backend/package.json ./apps/backend/package.json
 COPY packages/prisma/package.json ./packages/prisma/package.json
 
-# 3. 依存関係インストール（この時点ではソースコードはまだコピーしない）
+# 3. 依存関係インストール（immutable を外す）
 RUN corepack enable \
   && corepack prepare yarn@4.11.0 --activate \
-  && yarn install --immutable
+  && yarn install          # ← --immutable を削除
 
 # 4. 残りのソースコードをまとめてコピー
 COPY . .
