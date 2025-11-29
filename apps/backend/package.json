@@ -7,9 +7,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "dev": "node -r ts-node/register -r tsconfig-paths/register src/main.ts",
+    "dev": "env-cmd -f ../../.env -- node -r ts-node/register -r tsconfig-paths/register src/main.ts",
     "start": "node dist/main.js",
-    "start:dev": "node --require ts-node/register --require tsconfig-paths/register src/main.ts",
+    "start:dev": "env-cmd -f ../../.env -- node --require ts-node/register --require tsconfig-paths/register src/main.ts",
     "start:prod": "node dist/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
@@ -23,6 +23,7 @@
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
     "@terios/prisma": "workspace:*",
+    "firebase-admin": "^13.6.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },

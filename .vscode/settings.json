@@ -5,5 +5,6 @@
     "Turborepo",
     "Vercel",
     "yarnrc"
-  ]
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

@@ -15,14 +15,14 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-
-  // リレーションフィールド
-  goals Goal[] // User が複数の Goal を持つ
+  id             String   @id @default(uuid())
+  firebaseUid    String   @unique
+  email          String   @unique
+  phoneNumber    String?  @unique
+  isPhoneVerified Boolean @default(false)
+  createdAt      DateTime @default(now())
+  // 既存フィールド: name, password などは整理が必要
+  goals          Goal[]
 }
 
 model Goal {
