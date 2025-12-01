@@ -21,7 +21,6 @@ model User {
   phoneNumber    String?  @unique
   isPhoneVerified Boolean @default(false)
   createdAt      DateTime @default(now())
-  // 既存フィールド: name, password などは整理が必要
   goals          Goal[]
 }
 
