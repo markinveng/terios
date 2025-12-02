@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/main.scss";
 import Header from "@/components/header/Header";
+import { appStrings } from "@terios/ui-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Terios",
-  description: "あなたの目標達成を応援するサービスです。",
+  title: appStrings.appName,
+  description: appStrings.appDescription,
 };
 
 export default function RootLayout({

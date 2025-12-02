@@ -3,19 +3,35 @@ export const appStrings = {
   appDescription: "あなたの目標達成を応援するサービスです。",
 
   header: {
-    goals: "Goals",
-    search: "Search",
-    donate: "Donate",
-    signUp: "Sign Up",
-    login: "Login",
-    logout: "Logout",
+    goals: "目標",
+    notification: "通知",
+    search: "検索",
+    topics: "話題の目標",
+    profile: "プロフィール",
+    setting: "設定",
+    signUp: "サインアップ",
+    login: "ログイン",
+    logout: "ログアウト",
   },
 
-  home: {
+  homePage: {
     titleDefault: "目標を設定しましょう",
     titleWithGoal: (goal: string) => `あなたの目標は「${goal}」です`,
     setSampleGoalButton: "目標を設定する",
     sampleGoal: "例: 健康的な生活を送る",
+  },
+
+  notificationPage: {
+    title: "通知",
+  },
+
+  searchPage: {
+    title: "検索",
+    placeholder: "目標を検索...",
+  },
+
+  topicPage: {
+    title: "話題の目標",
   },
 
   auth: {

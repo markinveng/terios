@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import { EmailLogin } from "@/components/auth/EmailLogin";
+import { appStrings } from "@terios/ui-config";
 
 export default function Home() {
   const [goal, setGoal] = useState<string | null>(null);

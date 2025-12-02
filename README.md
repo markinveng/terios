@@ -176,7 +176,131 @@ yarn check-types
 
 `turbo run check-types` により、TypeScript の型チェックが各パッケージで実行されます。
 
+
+## 6-5. よく使うコマンド一覧
+
+### ルート共通
+
+- 依存関係インストール
+
+  ```sh
+  yarn install
+  ```
+
+- モノレポ全体のビルド
+
+  ```sh
+  yarn build           # = yarn turbo run build
+  ```
+
+- 開発サーバー（frontend + backend 同時起動）
+
+  ```sh
+  yarn dev             # = yarn turbo run dev
+  ```
+
+- Lint
+
+  ```sh
+  yarn lint            # = yarn turbo run lint
+  ```
+
+- 型チェック
+
+  ```sh
+  yarn check-types     # = yarn turbo run check-types
+  ```
+
 ---
+
+### フロントエンド（Next.js, `apps/frontend`）
+
+- 開発サーバー（モノレポ経由）
+
+  ```sh
+  yarn dev             # ルートで実行 / http://localhost:3000
+  ```
+
+- フロントエンドだけ起動したい場合
+
+  ```sh
+  yarn workspace frontend dev
+  # または
+  cd apps/frontend
+  yarn dev
+  ```
+
+---
+
+### バックエンド（NestJS, `apps/backend`）
+
+- 開発サーバー起動
+
+  ```sh
+  yarn workspace backend dev
+  # または
+  cd apps/backend
+  yarn dev
+  ```
+
+  - ポート: `http://localhost:4000`
+  - Prisma 用の `DATABASE_URL` などはルートの `.env` から読み込み
+
+- 単体テスト
+
+  ```sh
+  yarn workspace backend test
+  ```
+
+- E2E テスト
+
+  ```sh
+  yarn workspace backend test:e2e
+  ```
+
+---
+
+### Prisma（`packages/prisma`）
+
+- Prisma Client の生成
+
+  ```sh
+  cd packages/prisma
+  yarn generate
+  # または
+  npx prisma generate --schema schema.prisma
+  ```
+
+- マイグレーション（開発用）
+
+  ```sh
+  cd packages/prisma
+  yarn migrate:dev
+  # または
+  npx prisma migrate dev --schema schema.prisma
+  ```
+
+- Prisma Studio の起動
+
+  ```sh
+  cd packages/prisma
+  yarn studio
+  ```
+
+---
+
+### UI 設定パッケージ（`packages/ui-config`）
+
+- ビルド（現状はビルド不要なのでダミー）
+
+  ```sh
+  yarn workspace @terios/ui-config build
+  ```
+
+  `@terios/ui-config` は TypeScript のソースをそのまま各アプリから参照しており、
+  ビルド成果物は生成していません（`main` / `types` は `src/index.ts` を指しています）。
+
+  ---
 
 ## 7. フロントエンドのローカル起動（開発モード）
 

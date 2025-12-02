@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from './Header.module.scss';
 import Link from 'next/link';
+import { appStrings } from "@terios/ui-config";
 
 const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,17 +17,20 @@ const Header: React.FC = () => {
       <header className={styles.header}>
         <h1 className={styles.title}>Terios</h1>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.link}>Goals</Link>
-          <Link href="/search" className={styles.link}>Search</Link>
-          <Link href="/donate" className={styles.link}>Donate</Link>
+          <Link href="/" className={styles.link}>{appStrings.header.goals}</Link>
+          <Link href="/notification" className={styles.link}>{appStrings.header.notification}</Link>
+          <Link href="/search" className={styles.link}>{appStrings.header.search}</Link>
+          <Link href="/topics" className={styles.link}>{appStrings.header.topics}</Link>
+          <Link href="/profile" className={styles.link}>{appStrings.header.profile}</Link>
+          <Link href="/setting" className={styles.link}>{appStrings.header.setting}</Link>
         </nav>
         <div>
           {isLoggedIn ? (
-            <button onClick={handleLogout} className={styles.button}>Logout</button>
+            <button onClick={handleLogout} className={styles.button}>{appStrings.header.logout}</button>
           ) : (
             <>
-              <button className={styles.button}>Sign Up</button>
-              <button className={styles.button}>Login</button>
+              <button className={styles.button}>{appStrings.header.signUp}</button>
+              <button className={styles.button}>{appStrings.header.login}</button>
             </>
           )}
         </div>
