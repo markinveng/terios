@@ -34,6 +34,14 @@ export const appStrings = {
     title: "話題の目標",
   },
 
+  profilePage: {
+    title: "プロフィール"
+  },
+
+  settingPage: {
+    title: "設定"
+  },
+
   auth: {
     emailLoginTitle: "メールでログイン",
     emailPlaceholder: "メールアドレス",

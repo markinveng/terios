@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #282c34;
@@ -13,12 +13,38 @@
 }
 
 .nav {
+  margin-top: 2.5rem;
   display: flex;
   gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 .link {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.namePlate {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: #545963 2px solid;
+  border-radius: 30px;
+  cursor: pointer;
+  
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconImage {
+  border-radius: 50%;
+  border: #dddcdc 2px solid;
 }

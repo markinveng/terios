@@ -1,0 +1,11 @@
+{
+  "name": "@terios/assets",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "images",
+    "icons",
+    "illustrations"
+  ]
+}

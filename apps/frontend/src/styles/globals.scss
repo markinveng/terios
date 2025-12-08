@@ -1,0 +1,16 @@
+@import 'normalize.css';
+
+:root {
+  --c-primary: #282c34;
+  --c-background: #a8b1eb;
+  --color-button-primary: #e6ebf4;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}

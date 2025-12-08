@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
-import styles from './Header.module.scss';
+import Image from 'next/image';
+import styles from './header.module.scss';
 import Link from 'next/link';
 import { appStrings } from "@terios/ui-config";
 
@@ -16,6 +17,16 @@ const Header: React.FC = () => {
     <>
       <header className={styles.header}>
         <h1 className={styles.title}>Terios</h1>
+        <div className={styles.namePlate}>
+          <Image src="/assets/icons/icon_dummy.jpg" alt="Terios Logo" width={50} height={50} className={styles.iconImage} />
+          <div className={styles.userInfo}>
+            <span className={styles.nameText}>ヒノ</span>
+            <span className={styles.userId}>hinohinoihinohinohino</span>
+          </div>
+        </div>
+        <div>
+        <button className={styles.button}>{appStrings.header.logout}</button>
+        </div>
         <nav className={styles.nav}>
           <Link href="/" className={styles.link}>{appStrings.header.goals}</Link>
           <Link href="/notification" className={styles.link}>{appStrings.header.notification}</Link>

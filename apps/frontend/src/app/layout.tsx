@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/main.scss";
 import Header from "@/components/header/Header";
 import { appStrings } from "@terios/ui-config";
+import styles from "./layout.module.scss";
+import "@/styles/globals.scss";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${styles.body}`}>
         <Header />
         {children}
       </body>
